@@ -7,6 +7,12 @@ jobs:
     name: Test and Lint
     runs-on: ubuntu-20.04
     steps:
+      - name: Ensure Docker is running
+        run: |
+          sudo systemctl start docker
+          sudo systemctl enable docker
+          sudo docker info
+
       - name: Install Docker Compose
         run: |
           sudo apt-get update
